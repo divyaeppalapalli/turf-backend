@@ -1,0 +1,16 @@
+{
+  "name": "turf-backend",
+  "version": "1.0.0",
+  "description": "This is Turf backend APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Divya Eppalapalli, Kesar Chadana",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4"
+  }
+}
