@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 // mongoose connection...
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://eppalpellidivya:khzsDK6ieuhxcbEW@cluster0.nrvh2.mongodb.net/turf-db?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log('DB Connected!...')).catch(err => console.log('DB Connection Error: ', err));
+    .then(() => console.log('DB Connected!...')).catch(err => console.log('DB Connection Error: ', err));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded())
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded())
 app.use(bodyParser.json())
 
 const UserModel = require('./schemas/user.schema');
-const BookingModel = require('./schemas/booking.schema');   
+const BookingModel = require('./schemas/booking.schema');
 const Turf = require('./schemas/turf.schema');
 
 app.get('/', (req, res) => {
@@ -25,12 +25,12 @@ app.post('/login', async (req, res) => {
     const body = req.body;
     const { phoneNumber, password } = body;
     console.log('login backend: ', body);
-    
-    const user = await UserModel.findOne({phoneNumber: phoneNumber, password: password});
-    if(user) {
+
+    const user = await UserModel.findOne({ phoneNumber: phoneNumber, password: password });
+    if (user) {
         res.send(user);
     } else {
-        res.send('No User found with phoneNumber: ' + phoneNumber);
+        res.status(404).send('No User found with phoneNumber: ' + phoneNumber);
     }
 });
 
@@ -40,7 +40,7 @@ app.post('/createUser', async (req, res) => {
     const user = new UserModel(body);
     const saved = await user.save();
     console.log('saved user ', saved);
-    
+
     res.send(saved);
 })
 
@@ -48,7 +48,7 @@ app.post('/createUser', async (req, res) => {
 app.post('/createTurf', async (req, res) => {
     const body = req.body;
     const turf = new Turf(body);
-    const saved = await turf.save(); 
+    const saved = await turf.save();
 
     res.send(saved);
 });
