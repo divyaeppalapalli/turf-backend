@@ -5,7 +5,9 @@ const userSchema = new Schema({
     name: String,
     phoneNumber: { type: String, unique: true, required: true, dropDups: true},
     password: String,
-    photo: String
+    photo: String,
+    
+        
 });
 
 
