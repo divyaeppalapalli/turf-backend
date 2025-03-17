@@ -35,6 +35,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
+
 app.post('/createUser', async (req, res) => {
     const body = req.body;
 
@@ -45,13 +46,25 @@ app.post('/createUser', async (req, res) => {
     res.send(saved);
 });
 
+<<<<<<< HEAD
 app.get('/user/:userId', async (req, res) => {
     const userId = req.params.userId;
     UserModel.findById(userId)
+=======
+
+app.get('/user/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    User.findById(userId)
+>>>>>>> d3192877ac5b713d80000b551226bd2674392763
         .then(user => {
             res.status(200).json(user);
         });
 });
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d3192877ac5b713d80000b551226bd2674392763
 
 // Creates a turf
 app.post('/createTurf', async (req, res) => {
